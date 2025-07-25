@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dev.ngb.empdex.user.internal.infrastructure.repository.UserMyBatisRepository">
+
+    <select id="findAllUsers">
+        SELECT id, username, email, status, last_login
+        FROM user_module.users
+        WHERE deleted_at IS NULL
+        <if test="keyword != null and keyword != ''">
+            AND (username ILIKE CONCAT('%', #{keyword}, '%') OR email ILIKE CONCAT('%', #{keyword}, '%'))
+        </if>
+        <if test="status != null and status != ''">
+            AND status = #{status}
+        </if>
+        ORDER BY
+        <choose>
+            <when test="sortField == 'username'">username</when>
+            <when test="sortField == 'email'">email</when>
+            <when test="sortField == 'lastLogin'">last_login</when>
+            <when test="sortField == 'status'">status</when>
+            <otherwise>id</otherwise>
+        </choose>
+        <choose>
+            <when test="sortDirection == 'DESC'">DESC</when>
+            <otherwise>ASC</otherwise>
+        </choose>
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+
+    <select id="countUsers">
+        SELECT COUNT(*)
+        FROM user_module.users
+        WHERE deleted_at IS NULL
+        <if test="keyword != null and keyword != ''">
+            AND (username ILIKE CONCAT('%', #{keyword}, '%') OR email ILIKE CONCAT('%', #{keyword}, '%'))
+        </if>
+        <if test="status != null and status != ''">
+            AND status = #{status}
+        </if>
+    </select>
+</mapper>

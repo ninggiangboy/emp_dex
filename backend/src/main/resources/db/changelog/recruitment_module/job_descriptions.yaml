@@ -1,0 +1,66 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-job-descriptions-table
+      author: system
+      changes:
+        - createTable:
+            schemaName: recruitment_module
+            tableName: job_descriptions
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: title
+                  type: VARCHAR(100)
+              - column:
+                  name: description
+                  type: TEXT
+              - column:
+                  name: requirements
+                  type: TEXT
+              - column:
+                  name: benefits
+                  type: TEXT
+              - column:
+                  name: work_type
+                  type: VARCHAR(20)
+              - column:
+                  name: level
+                  type: VARCHAR(20)
+              - column:
+                  name: min_years_experience
+                  type: INT
+              - column:
+                  name: min_salary
+                  type: DECIMAL(10, 2)
+              - column:
+                  name: max_salary
+                  type: DECIMAL(10, 2)
+              - column:
+                  name: department_id
+                  type: INT
+              - column:
+                  name: number_of_recruits
+                  type: INT
+              - column:
+                  name: status
+                  type: VARCHAR(20)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+              - column:
+                  name: created_by
+                  type: INT
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+              - column:
+                  name: updated_by
+                  type: INT
+              - column:
+                  name: deleted_at
+                  type: TIMESTAMP 

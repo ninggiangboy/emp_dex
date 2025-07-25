@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-job-description-tags-table
+      author: system
+      changes:
+        - createTable:
+            schemaName: recruitment_module
+            tableName: job_description_tags
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: job_description_id
+                  type: INT
+              - column:
+                  name: tag_id
+                  type: INT 

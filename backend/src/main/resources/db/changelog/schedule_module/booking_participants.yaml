@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-booking-participants-table
+      author: system
+      changes:
+        - createTable:
+            schemaName: schedule_module
+            tableName: booking_participants
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: booking_id
+                  type: INT
+              - column:
+                  name: user_id
+                  type: INT
+              - column:
+                  name: rsvp_status
+                  type: VARCHAR(20)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+              - column:
+                  name: created_by
+                  type: INT
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+              - column:
+                  name: deleted_at
+                  type: TIMESTAMP 

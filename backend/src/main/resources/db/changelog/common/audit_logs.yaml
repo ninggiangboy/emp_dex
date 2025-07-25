@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-audit-logs-table
+      author: system
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: audit_logs
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: action
+                  type: VARCHAR(50)
+              - column:
+                  name: entity_name
+                  type: VARCHAR(100)
+              - column:
+                  name: entity_id
+                  type: VARCHAR(50)
+              - column:
+                  name: user_id
+                  type: VARCHAR(50)
+              - column:
+                  name: actor_type
+                  type: VARCHAR(20)
+              - column:
+                  name: request_id
+                  type: VARCHAR(50)
+              - column:
+                  name: request_method
+                  type: VARCHAR(10)
+              - column:
+                  name: request_uri
+                  type: VARCHAR(255)
+              - column:
+                  name: client_ip
+                  type: VARCHAR(45)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+              - column:
+                  name: new_values
+                  type: JSON
+              - column:
+                  name: details
+                  type: TEXT 

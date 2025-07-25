@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-user-module-schema
+      author: system
+      changes:
+        - sql:
+            sql: CREATE SCHEMA IF NOT EXISTS user_module
+  - include:
+      file: db/changelog/user_module/users.yaml
+  - include:
+      file: db/changelog/user_module/login_history.yaml

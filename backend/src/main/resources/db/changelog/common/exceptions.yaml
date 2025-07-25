@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-exception-table
+      author: system
+      changes:
+        - createTable:
+            schemaName: public
+            tableName: exceptions
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: class_name
+                  type: VARCHAR(100)
+              - column:
+                  name: exception_name
+                  type: VARCHAR(100)
+              - column:
+                  name: message
+                  type: TEXT
+              - column:
+                  name: stack_trace
+                  type: TEXT
+              - column:
+                  name: user_id
+                  type: VARCHAR(50)
+              - column:
+                  name: actor_type
+                  type: VARCHAR(20)
+              - column:
+                  name: request_id
+                  type: VARCHAR(50)
+              - column:
+                  name: request_method
+                  type: VARCHAR(10)
+              - column:
+                  name: request_url
+                  type: VARCHAR(255)
+              - column:
+                  name: client_ip
+                  type: VARCHAR(45)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP

@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-login-history-table
+      author: system
+      changes:
+        - createTable:
+            schemaName: user_module
+            tableName: login_history
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: user_id
+                  type: UUID
+              - column:
+                  name: login_timestamp
+                  type: TIMESTAMP
+              - column:
+                  name: ip_address
+                  type: VARCHAR(45)
+              - column:
+                  name: user_agent
+                  type: TEXT
+              - column:
+                  name: login_status
+                  type: VARCHAR(20)
+              - column:
+                  name: failure_reason
+                  type: VARCHAR(255)

@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-recruitment-module-schema
+      author: system
+      changes:
+        - sql:
+            sql: CREATE SCHEMA IF NOT EXISTS recruitment_module
+  - include:
+      file: db/changelog/recruitment_module/recruitment_tags.yaml
+  - include:
+      file: db/changelog/recruitment_module/job_descriptions.yaml
+  - include:
+      file: db/changelog/recruitment_module/job_description_tags.yaml
+  - include:
+      file: db/changelog/recruitment_module/job_posting_links.yaml
+  - include:
+      file: db/changelog/recruitment_module/applications.yaml
+  - include:
+      file: db/changelog/recruitment_module/application_comments.yaml
+  - include:
+      file: db/changelog/recruitment_module/application_documents.yaml 

@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-organization-module-schema
+      author: system
+      changes:
+        - sql:
+            sql: CREATE SCHEMA IF NOT EXISTS organization_module
+  - include:
+      file: db/changelog/organization_module/departments.yaml
+  - include:
+      file: db/changelog/organization_module/employees.yaml 

@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-schedule-module-schema
+      author: system
+      changes:
+        - sql:
+            sql: CREATE SCHEMA IF NOT EXISTS schedule_module
+  - include:
+      file: db/changelog/schedule_module/rooms.yaml
+  - include:
+      file: db/changelog/schedule_module/schedule_tags.yaml
+  - include:
+      file: db/changelog/schedule_module/bookings.yaml
+  - include:
+      file: db/changelog/schedule_module/booking_tags.yaml
+  - include:
+      file: db/changelog/schedule_module/booking_participants.yaml 

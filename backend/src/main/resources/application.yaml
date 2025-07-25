@@ -1,0 +1,44 @@
+spring:
+  application.name: backend
+  liquibase:
+    enabled: false
+  modulith:
+    events:
+      jdbc:
+        schema-initialization:
+          enabled: true
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: always
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    listener:
+      simple:
+        retry:
+          enabled: true
+          initial-interval: 1000
+          max-attempts: 3
+          multiplier: 1.0
+          max-interval: 10000
+jwt:
+  secret: askjdlaksjdlakshjdlajkshdlajshflajdhflsjadhfkljsadhfskjdfbvksdhjfbskhdfbskhdfbs
+  expiration: 3600 # seconds
+google:
+  oauth2:
+    client-id: ${GOOGLE_CLIENT_ID}
+    client-secret: ${GOOGLE_CLIENT_SECRET}
+    redirect-uri: http://localhost:5173
+logging:
+  level:
+    org:
+      springframework:
+        jdbc: DEBUG
+mybatis:
+  mapper-locations: classpath*:mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true

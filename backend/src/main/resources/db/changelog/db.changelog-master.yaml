@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/common/common.yaml
+  - include:
+      file: db/changelog/user_module/user_module.yaml
+  - include:
+      file: db/changelog/organization_module/organization_module.yaml
+  - include:
+      file: db/changelog/recruitment_module/recruitment_module.yaml
+  - include:
+      file: db/changelog/schedule_module/schedule_module.yaml
